@@ -1,6 +1,6 @@
 var Firebase = require('./firebase-node');
 
-var db = new Firebase('https://io.firebaseio.com/items');
+var db = new Firebase('https://freeshit.firebaseio.com/items');
 var geohash = require('ngeohash');
 var base32 = require("encode32");
 
