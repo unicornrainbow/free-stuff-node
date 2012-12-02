@@ -1,14 +1,15 @@
-express  = require "express"
+express = require "express"
 Firebase = require "./firebase-node"
 config = require "./config"
-ItemGeohasher = require './lib/item_geohasher'
+Item = require './lib/item'
 
 db = new Firebase("#{config.firebase_root}/items")
-db.on "child_added", ItemGeohasher.update_geohash
+db.on "child_added", (snapshot) ->
+  (new Item(snapshot)).update_geohash()
 
 app = express(express.logger())
 app.get "/", (request, response) ->
-  response.send "Fuck off!"
+  response.send "Hello World!"
 
 port = process.env.PORT or 5000
 app.listen port, ->
@@ -29,7 +30,6 @@ app.listen port, ->
     #lower = base32.encode(hash - zoom).toLowerCase()
     #db.startAt(lower).endAt(upper).on "value", (snap) ->
       #callback snap.val()
-
 
 #Item.find_nearby 37.759079, -122.428998, (result) ->
   #console.log result
