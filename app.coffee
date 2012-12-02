@@ -1,23 +1,12 @@
-geohash  = require "ngeohash"
-base32   = require "encode32"
-Firebase = require "./firebase-node"
 express  = require "express"
+Firebase = require "./firebase-node"
 config = require "./config"
-
-update_geohash = (snapshot) ->
-  value = snapshot.val()
-  console.log "Processing #{JSON.stringify(value)}"
-  [lat, lon] = [value.lat, value.lon]
-  hash = geohash.encode(value.lat, value.lon)
-
-  ref = snapshot.ref()
-  ref.update geohash: hash
-  ref.setPriority hash
+ItemGeohasher = require './lib/item_geohasher'
 
 db = new Firebase("#{config.firebase_root}/items")
-db.on "child_added", update_geohash
+db.on "child_added", ItemGeohasher.update_geohash
 
-app = express.createServer(express.logger())
+app = express(express.logger())
 app.get "/", (request, response) ->
   response.send "Fuck off!"
 
