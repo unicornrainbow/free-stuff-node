@@ -7,7 +7,9 @@
     "ngeohash": "x",
     "iced-coffee-script": "1.3.3h",
     "encode32": "x",
-    "backbone": "x"
+    "backbone": "x",
+    "underscore": "x"
+
   },
   "engines": {
     "node": "0.8.x",
