@@ -2,6 +2,7 @@ geohash  = require "ngeohash"
 base32   = require "encode32"
 Firebase = require "./firebase-node"
 express  = require "express"
+config = require "./config"
 
 update_geohash = (snapshot) ->
   value = snapshot.val()
@@ -13,7 +14,7 @@ update_geohash = (snapshot) ->
   ref.update geohash: hash
   ref.setPriority hash
 
-db = new Firebase("https://io.firebaseio.com/items")
+db = new Firebase("#{config.firebase_root}/items")
 db.on "child_added", update_geohash
 
 app = express.createServer(express.logger())
