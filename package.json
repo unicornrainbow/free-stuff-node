@@ -5,7 +5,7 @@
     "express": "2.5.x",
     "faye-websocket": "0.4.x",
     "ngeohash": "x",
-    "coffee-script": "1.1.2",
+    "iced-coffee-script": "1.3.3h",
     "encode32": "x"
   },
   "engines": {
