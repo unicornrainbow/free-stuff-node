@@ -18,8 +18,13 @@ class Item
   get: (name) ->
     @attributes[name]
 
-  @nearby: (lat, lon, callback) ->
-    zoom = 1000000
+  @nearby: (opts={}, callback) ->
+    lat = new Number(opts.lat) || 37.759079
+    lon = new Number(opts.lon) || -122.428998
+    zoom = new Number(opts.zoom) || 10
+    console.log zoom
+    zoom = Math.pow(2, zoom)
+    console.log zoom
     hash = geohash.encode(lat, lon)
     hash = base32.decode(hash)
 
