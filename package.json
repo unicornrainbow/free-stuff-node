@@ -4,7 +4,8 @@
   "dependencies": {
     "express": "2.5.x",
     "faye-websocket": "0.4.x",
-    "ngeohash": "x"
+    "ngeohash": "x",
+    "encode32": "x"
   },
   "engines": {
     "node": "0.8.x",
