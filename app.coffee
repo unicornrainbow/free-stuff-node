@@ -15,7 +15,7 @@ Item.db = db
 
 # Web Server
 app = express()
-app.get "/nearby", (req, res) ->
+app.get "/nearby.json", (req, res) ->
   #Item.nearby 37.759079, -122.428998, (result) ->
   Item.nearby lat: req.query.lat, lon: req.query.lon, zoom: req.query.zoom, (result) ->
     res.send result
