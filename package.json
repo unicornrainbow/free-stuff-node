@@ -2,6 +2,7 @@
   "name": "freeshit",
   "version": "0.0.1",
   "dependencies": {
+    "express": "2.5.x",
     "faye-websocket": "0.4.x"
   },
   "engines": {
