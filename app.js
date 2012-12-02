@@ -14,7 +14,6 @@ db.on("child_added", function(snapshot){
   snapshot.ref().update({geohash: hash});
   snapshot.ref().setPriority(hash);
 
-
   //console.log(value);
   //console.log(lat);
   //console.log(lon);
@@ -22,9 +21,6 @@ db.on("child_added", function(snapshot){
   //console.log(geohash.encode(37.8324, 112.5584));
   //console.log(v.val());
 });
-
-
-
 
 //db.child("blake").set('from me');
 
@@ -42,7 +38,11 @@ app.listen(port, function() {
 });
 
 
+//4 digits - 40k e/w 20k n/s (city)
+//5 digits - 5k
+
+
 // Get some stuff
-db.startAt("ww8p1r4t").endAt("ww8p1r4u").on("value", function(snap) {
+db.startAt("9q8yy").endAt("9q8yz").on("value", function(snap) {
   console.log(snap.val());
 });
